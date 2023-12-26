@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: aironbot_description
+    relative_path: urdf/aironbot.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/aironbot.srdf
+  CONFIG:
+    author_name: author
+    author_email: author@email.com
+    generated_timestamp: 1683792859

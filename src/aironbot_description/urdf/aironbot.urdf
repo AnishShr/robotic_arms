@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="aironbot">
+  
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+
+  <material name="white">
+    <color rgba="0.9 0.9 0.9 1"/>
+  </material>
+
+  <material name="black">
+    <color rgba="0.0 0.0 0.0 1"/>
+  </material>
+   
+   <!-- Links -->
+
+   <link name="base_link">
+      <visual>
+         <geometry>
+            <mesh filename="package://aironbot_description/meshes/manipulator_base_link.stl" />
+         </geometry>
+         <material name="blue"/>
+      </visual>
+      <collision>
+         <geometry>
+            <mesh filename="package://aironbot_description/meshes/manipulator_base_link.stl" />
+         </geometry>
+      </collision>
+   </link>
+   
+   <link name="link_1">
+      <visual>
+         <geometry>
+            <mesh filename="package://aironbot_description/meshes/manipulator_link.stl" />
+         </geometry>
+         <material name="white"/>
+      </visual>
+      <collision>
+         <geometry>
+            <mesh filename="package://aironbot_description/meshes/manipulator_link.stl" />
+         </geometry>
+      </collision>
+   </link>
+
+   <link name="link_2">
+      <visual>
+         <geometry>
+            <mesh filename="package://aironbot_description/meshes/manipulator_link.stl" />
+         </geometry>
+         <material name="white"/>
+      </visual>
+      <collision>
+         <geometry>
+            <mesh filename="package://aironbot_description/meshes/manipulator_link.stl" />
+         </geometry>
+      </collision>
+   </link>
+
+   <link name="link_3">
+      <visual>
+         <geometry>
+            <mesh filename="package://aironbot_description/meshes/manipulator_link.stl" />
+         </geometry>
+         <material name="white"/>
+      </visual>
+      <collision>
+         <geometry>
+            <mesh filename="package://aironbot_description/meshes/manipulator_link.stl" />
+         </geometry>
+      </collision>
+   </link>
+
+   <link name="link_4">
+      <visual>
+         <geometry>
+            <mesh filename="package://aironbot_description/meshes/manipulator_link.stl" />
+         </geometry>
+         <material name="white"/>
+      </visual>
+      <collision>
+         <geometry>
+            <mesh filename="package://aironbot_description/meshes/manipulator_link.stl" />
+         </geometry>
+      </collision>
+   </link>
+
+   <link name="gripper">
+      <visual>
+         <geometry>
+            <mesh filename="package://aironbot_description/meshes/gripper.stl" />
+         </geometry>
+         <material name="black"/>
+      </visual>
+      <collision>
+         <geometry>
+            <mesh filename="package://aironbot_description/meshes/gripper.stl" />
+         </geometry>
+      </collision>
+   </link>
+
+   <link name="tool0" />
+   
+   
+   <!-- Joints -->
+   
+   <joint name="link_1_to_base" type="revolute">
+      <parent link="base_link" />
+      <child link="link_1" />
+      <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/> 
+      <origin xyz="0 0 0.14" />
+      <axis xyz="0 1 0" />    
+   </joint>
+
+   <joint name="link_2_to_link_1" type="revolute">
+      <parent link="link_1" />
+      <child link="link_2" />
+      <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/> 
+      <origin xyz="0 0 0.32" />
+      <axis xyz="0 1 0" />    
+   </joint>
+
+   <joint name="link_3_to_link_2" type="revolute">
+      <parent link="link_2" />
+      <child link="link_3" />
+      <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/> 
+      <origin xyz="0 0 0.32" />
+      <axis xyz="0 1 0" />    
+   </joint>
+
+   <joint name="link_4_to_link_3" type="revolute">
+      <parent link="link_3" />
+      <child link="link_4" />
+      <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/> 
+      <origin xyz="0 0 0.32" />
+      <axis xyz="0 1 0" />    
+   </joint>
+
+   <joint name="gripper_to_link_4" type="revolute">
+      <parent link="link_4" />
+      <child link="gripper" />
+      <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/> 
+      <origin xyz="0 0 0.32" rpy="0 0 1.57" />
+      <axis xyz="1 0 0" />    
+   </joint>
+
+   <joint name="tool0_to_gripper" type="fixed">
+      <parent link="gripper" />
+      <child link="tool0" />
+      <origin xyz="0 0 0.15" />
+   </joint>
+
+</robot>

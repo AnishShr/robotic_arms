@@ -1,0 +1,43 @@
+controller_list:
+  - name: fake_ur5_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - ur5_shoulder_pan_joint
+      - ur5_shoulder_lift_joint
+      - ur5_elbow_joint
+      - ur5_wrist_1_joint
+      - ur5_wrist_2_joint
+      - ur5_wrist_3_joint
+  - name: fake_panda_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - franka_arm_joint1
+      - franka_arm_joint2
+      - franka_arm_joint3
+      - franka_arm_joint4
+      - franka_arm_joint5
+      - franka_arm_joint6
+      - franka_arm_joint7
+  - name: fake_dual_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - franka_arm_joint1
+      - franka_arm_joint2
+      - franka_arm_joint3
+      - franka_arm_joint4
+      - franka_arm_joint5
+      - franka_arm_joint6
+      - franka_arm_joint7
+      - ur5_shoulder_pan_joint
+      - ur5_shoulder_lift_joint
+      - ur5_elbow_joint
+      - ur5_wrist_1_joint
+      - ur5_wrist_2_joint
+      - ur5_wrist_3_joint
+initial:  # Define initial robot poses per group
+  - group: ur5
+    pose: ur5_ready
+  - group: panda
+    pose: panda_ready
+  - group: dual
+    pose: dual_ready

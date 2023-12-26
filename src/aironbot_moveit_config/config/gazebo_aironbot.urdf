@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<robot name="aironbot">
+    <material name="blue">
+        <color rgba="0 0 0.8 1" />
+    </material>
+    <material name="white">
+        <color rgba="0.9 0.9 0.9 1" />
+    </material>
+    <material name="black">
+        <color rgba="0.0 0.0 0.0 1" />
+    </material>
+    <!-- Links -->
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://aironbot_description/meshes/manipulator_base_link.stl" />
+            </geometry>
+            <material name="blue" />
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://aironbot_description/meshes/manipulator_base_link.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="link_1">
+        <visual>
+            <geometry>
+                <mesh filename="package://aironbot_description/meshes/manipulator_link.stl" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://aironbot_description/meshes/manipulator_link.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="link_2">
+        <visual>
+            <geometry>
+                <mesh filename="package://aironbot_description/meshes/manipulator_link.stl" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://aironbot_description/meshes/manipulator_link.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="link_3">
+        <visual>
+            <geometry>
+                <mesh filename="package://aironbot_description/meshes/manipulator_link.stl" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://aironbot_description/meshes/manipulator_link.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="link_4">
+        <visual>
+            <geometry>
+                <mesh filename="package://aironbot_description/meshes/manipulator_link.stl" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://aironbot_description/meshes/manipulator_link.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="gripper">
+        <visual>
+            <geometry>
+                <mesh filename="package://aironbot_description/meshes/gripper.stl" />
+            </geometry>
+            <material name="black" />
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://aironbot_description/meshes/gripper.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="tool0" />
+    <!-- Joints -->
+    <joint name="link_1_to_base" type="revolute">
+        <parent link="base_link" />
+        <child link="link_1" />
+        <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5" />
+        <origin xyz="0 0 0.14" />
+        <axis xyz="0 1 0" />
+    </joint>
+    <joint name="link_2_to_link_1" type="revolute">
+        <parent link="link_1" />
+        <child link="link_2" />
+        <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5" />
+        <origin xyz="0 0 0.32" />
+        <axis xyz="0 1 0" />
+    </joint>
+    <joint name="link_3_to_link_2" type="revolute">
+        <parent link="link_2" />
+        <child link="link_3" />
+        <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5" />
+        <origin xyz="0 0 0.32" />
+        <axis xyz="0 1 0" />
+    </joint>
+    <joint name="link_4_to_link_3" type="revolute">
+        <parent link="link_3" />
+        <child link="link_4" />
+        <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5" />
+        <origin xyz="0 0 0.32" />
+        <axis xyz="0 1 0" />
+    </joint>
+    <joint name="gripper_to_link_4" type="revolute">
+        <parent link="link_4" />
+        <child link="gripper" />
+        <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5" />
+        <origin xyz="0 0 0.32" rpy="0 0 1.57" />
+        <axis xyz="1 0 0" />
+    </joint>
+    <joint name="tool0_to_gripper" type="fixed">
+        <parent link="gripper" />
+        <child link="tool0" />
+        <origin xyz="0 0 0.15" />
+    </joint>
+    <transmission name="trans_link_1_to_base">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="link_1_to_base">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="link_1_to_base_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_link_2_to_link_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="link_2_to_link_1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="link_2_to_link_1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_link_3_to_link_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="link_3_to_link_2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="link_3_to_link_2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_link_4_to_link_3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="link_4_to_link_3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="link_4_to_link_3_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_gripper_to_link_4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="gripper_to_link_4">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="gripper_to_link_4_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+</robot>
+

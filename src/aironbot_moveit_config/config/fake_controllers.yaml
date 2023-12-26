@@ -1,0 +1,12 @@
+controller_list:
+  - name: fake_aironbot_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - link_1_to_base
+      - link_2_to_link_1
+      - link_3_to_link_2
+      - link_4_to_link_3
+      - gripper_to_link_4
+initial:  # Define initial robot poses per group
+  - group: aironbot
+    pose: extended

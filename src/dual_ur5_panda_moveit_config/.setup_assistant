@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: dual_ur5_panda_description
+    relative_path: urdf/dual_ur5_panda.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/dual_manipulator_setup.srdf
+  CONFIG:
+    author_name: author
+    author_email: author@email.com
+    generated_timestamp: 1684861114
